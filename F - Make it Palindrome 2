@@ -1,0 +1,146 @@
+F - Make it Palindrome 2  / 
+Time Limit: 2 sec / Memory Limit: 1024 MiB
+
+Score : 
+525 points
+
+Problem Statement
+You are given a positive integer 
+N, a positive integer 
+M, and an integer sequence 
+A=(A 
+1
+​
+ ,A 
+2
+​
+ ,…,A 
+N
+​
+ ) of length 
+N. It is guaranteed that each element of 
+A is between 
+0 and 
+M−1, inclusive.
+
+You can perform the following operation on the integer sequence 
+A any number of times, possibly zero:
+
+Choose a pair of integers 
+(l,r) satisfying 
+1≤l≤r≤N, and replace 
+A 
+i
+​
+  with 
+(A 
+i
+​
+ +1)modM for each 
+i=l,l+1,…,r.
+Find the minimum number of operations required to make 
+A a palindrome.
+
+Here, 
+A is a palindrome if 
+A 
+i
+​
+ =A 
+N+1−i
+​
+  holds for 
+i=1,2,…,N.
+
+You are given 
+T test cases; solve each of them.
+
+Constraints
+1≤T
+1≤N≤2×10 
+5
+ 
+1≤M≤10 
+9
+ 
+0≤A 
+i
+​
+ <M
+The sum of 
+N over all test cases is at most 
+2×10 
+5
+ .
+All input values are integers.
+Input
+The input is given from Standard Input in the following format:
+
+T
+case 
+1
+​
+ 
+case 
+2
+​
+ 
+⋮
+case 
+T
+​
+ 
+Each test case is given in the following format:
+
+N 
+M
+A 
+1
+​
+  
+A 
+2
+​
+  
+… 
+A 
+N
+​
+ 
+Output
+Output the answers for the test cases in order, separated by newlines.
+
+Sample Input 1
+Copy
+3
+4 5
+0 3 1 2
+1 20260418
+454
+7 12
+3 1 4 1 5 9 2
+Sample Output 1
+Copy
+3
+0
+5
+Consider the first test case.
+
+You can make 
+A a palindrome in three operations as follows:
+
+Choose 
+(l,r)=(2,4). 
+A becomes 
+(0,4,2,3).
+Choose 
+(l,r)=(3,4). 
+A becomes 
+(0,4,3,4).
+Choose 
+(l,r)=(3,4). 
+A becomes 
+(0,4,4,0).
+It is impossible to make 
+A a palindrome in fewer than three operations, so output 
+3
