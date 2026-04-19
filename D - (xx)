@@ -1,0 +1,109 @@
+D - (xx)  / 
+Time Limit: 2 sec / Memory Limit: 1024 MiB
+
+Score : 
+425 points
+
+Problem Statement
+You are given a string 
+A consisting of (, x, ).
+You can perform the following two types of operations on 
+A any number of times in any order.
+
+Choose one occurrence of the substring (xx) in 
+A and replace it with xx.
+Choose one occurrence of the substring xx in 
+A and replace it with (xx).
+You are given a string 
+B consisting of (, x, ). Determine whether you can make 
+A equal to 
+B.
+
+You are given 
+T test cases; solve each of them.
+
+What is a substring
+Constraints
+1≤T≤3×10 
+5
+ 
+A and 
+B are strings of length between 
+1 and 
+2×10 
+6
+ , inclusive, consisting of (, x, ).
+The sum of 
+∣A∣+∣B∣ over all test cases is at most 
+2×10 
+6
+  (where 
+∣A∣ denotes the length of 
+A).
+Input
+The input is given from Standard Input in the following format:
+
+T
+case 
+1
+​
+ 
+case 
+2
+​
+ 
+⋮
+case 
+T
+​
+ 
+Each test case is given in the following format:
+
+A
+B
+Output
+Output 
+T lines. The 
+i-th line should contain the answer to the 
+i-th test case.
+For each test case, output Yes if you can make 
+A equal to 
+B, and No otherwise.
+
+Sample Input 1
+Copy
+6
+(xx)x
+x(xx)
+(x)x
+(xx)
+)x()x(
+)x()x(
+x
+(x)
+(((((xx)))))x
+x((((((((((xx))))))))))
+((xx)xx)xx
+(x((xx))x)(xx)
+Sample Output 1
+Copy
+Yes
+No
+Yes
+No
+Yes
+Yes
+For example, in the first test case, you can make 
+A equal to 
+B by the following procedure:
+
+Replace the (xx) from the 
+1st through 
+4th characters of 
+A with xx. After this operation, 
+A is xxx.
+Replace the xx from the 
+2nd through 
+3rd characters of 
+A with (xx). After this operation, 
+A is x(xx).
