@@ -1,0 +1,343 @@
+G - Mode in the Subtree  / 
+Time Limit: 4 sec / Memory Limit: 1024 MiB
+
+Score : 
+625 points
+
+Problem Statement
+You are given a rooted tree with 
+N vertices numbered 
+1 through 
+N. Vertex 
+1 is the root, and the parent of vertex 
+i is vertex 
+p 
+i
+​
+  (
+p 
+i
+​
+ <i).
+Each vertex is colored: vertex 
+i is colored with color 
+c 
+i
+​
+  (
+1≤c 
+i
+​
+ ≤N).
+For each 
+v=1,2,…,N, solve the following problem:
+
+Let 
+f 
+i
+​
+  be the number of vertices colored with color 
+i among the vertices in the subtree rooted at vertex 
+v.
+
+Find:
+
+the maximum value 
+m among the values in the sequence 
+(f 
+1
+​
+ ,f 
+2
+​
+ ,…,f 
+N
+​
+ ), and
+the number 
+k of positive integers 
+i not greater than 
+N such that 
+f 
+i
+​
+ =m.
+Input/Output Format
+The input and output for this problem follow a special format.
+
+Input Format
+From Standard Input, you are given the integer 
+N along with integers 
+seed,M,F and 
+q 
+2
+​
+ ,q 
+3
+​
+ ,…,q 
+M
+​
+ , 
+d 
+1
+​
+ ,d 
+2
+​
+ ,…,d 
+M
+​
+ . Reconstruct 
+p 
+2
+​
+ ,p 
+3
+​
+ ,…,p 
+N
+​
+  and 
+c 
+1
+​
+ ,c 
+2
+​
+ ,…,c 
+N
+​
+  using the computation described by the following pseudocode. (Here, 2^31 means 
+2 
+31
+ =2147483648. Note that 
+state is a variable, and that a 
+64-bit integer type is required for computing 
+state.)
+
+state = seed
+
+for i=2 to N:
+  if i <= M:
+    p[i] = q[i]
+  else:
+    p[i] = (state mod (i-1)) + 1
+    state = (state * 1103515245 + 12345) mod 2^31
+
+for i=1 to N:
+  if i <= M:
+    c[i] = d[i]
+  else:
+    c[i] = (state mod F) + 1
+    state = (state * 1103515245 + 12345) mod 2^31
+Output Format
+Let 
+m 
+i
+​
+  and 
+k 
+i
+​
+  denote 
+m and 
+k when 
+v=i, respectively. Output this value:
+
+( 
+i=1
+∑
+N
+​
+ (m 
+i
+​
+ ⊕i)×(k 
+i
+​
+ ⊕i))mod998244353
+Here, 
+⊕ denotes bitwise XOR. Beware of overflow during computation.
+
+Constraints
+2≤N≤2.5×10 
+6
+ 
+1≤p 
+i
+​
+ <i
+1≤c 
+i
+​
+ ≤N
+1≤seed<2 
+31
+ 
+2≤M≤min(N,10 
+5
+ )
+1≤F≤N
+1≤q 
+i
+​
+ <i
+1≤d 
+i
+​
+ ≤N
+All input values are integers.
+Input
+The input is given from Standard Input in the following format:
+
+N 
+seed 
+M 
+F
+q 
+2
+​
+  
+q 
+3
+​
+  
+… 
+q 
+M
+​
+ 
+d 
+1
+​
+  
+d 
+2
+​
+  
+… 
+d 
+M
+​
+ 
+Output
+Output 
+( 
+i=1
+∑
+N
+​
+ (m 
+i
+​
+ ⊕i)×(k 
+i
+​
+ ⊕i))mod998244353.
+
+Sample Input 1
+Copy
+4 454 4 2
+1 2 2
+1 2 2 3
+Sample Output 1
+Copy
+29
+i=1 : 
+m 
+1
+​
+ =2,k 
+1
+​
+ =1,(m 
+1
+​
+ ⊕1)×(k 
+1
+​
+ ⊕1)=0
+i=2 : 
+m 
+2
+​
+ =2,k 
+2
+​
+ =1,(m 
+2
+​
+ ⊕2)×(k 
+2
+​
+ ⊕2)=0
+i=3 : 
+m 
+3
+​
+ =1,k 
+3
+​
+ =1,(m 
+3
+​
+ ⊕3)×(k 
+3
+​
+ ⊕3)=4
+i=4 : 
+m 
+4
+​
+ =1,k 
+4
+​
+ =1,(m 
+4
+​
+ ⊕4)×(k 
+4
+​
+ ⊕4)=25
+Thus, output 
+0+0+4+25=29.
+
+Sample Input 2
+Copy
+6 123 2 2
+1
+1 2
+Sample Output 2
+Copy
+101
+The values of 
+p 
+i
+​
+ ,c 
+i
+​
+  in this test case are as follows:
+
+p=(1,2,1,2,3)
+c=(1,2,2,1,2,1)
+Sample Input 3
+Copy
+15 1 4 5
+1 2 3
+5 3 1 3
+Sample Output 3
+Copy
+1199
+The values of 
+p 
+i
+​
+ ,c 
+i
+​
+  in this test case are as follows:
+
+p=(1,2,3,2,1,4,7,6,5,10,1,10,2,8)
+c=(5,3,1,3,4,2,2,2,4,2,2,5,3,5,3)
