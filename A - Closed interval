@@ -1,0 +1,50 @@
+A - Closed interval  / 
+Time Limit: 2 sec / Memory Limit: 1024 MiB
+
+Score : 
+100 points
+
+Problem Statement
+You are given integers 
+L and 
+R.
+
+Find how many integers are between 
+L and 
+R, inclusive.
+
+Constraints
+1≤L≤R≤100
+All input values are integers.
+Input
+The input is given from Standard Input in the following format:
+
+L 
+R
+Output
+Output the answer.
+
+Sample Input 1
+Copy
+3 5
+Sample Output 1
+Copy
+3
+The integers between 
+3 and 
+5, inclusive, are 
+3,4,5, which is three integers. Thus, output 
+3.
+
+Sample Input 2
+Copy
+1 7
+Sample Output 2
+Copy
+7
+Sample Input 3
+Copy
+14 79
+Sample Output 3
+Copy
+66
